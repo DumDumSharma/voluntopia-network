@@ -31,7 +31,7 @@ const FeaturedOpportunities = () => {
       id: "2",
       title: "Literacy Program Tutor",
       organization: "Education for All",
-      location: "Remote",
+      location: "Pune",
       commitment: "2 hours/week",
       requiredSkills: ["Teaching", "Patience", "Communication"],
       image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=500&auto=format&fit=crop&q=80",
