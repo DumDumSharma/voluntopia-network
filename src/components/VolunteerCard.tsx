@@ -1,5 +1,4 @@
-
-import React, { useState } from "react";
+import React, { useState, CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { Heart, Users, Clock, MapPin, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -20,9 +19,10 @@ export interface VolunteerOpportunity {
 interface VolunteerCardProps {
   opportunity: VolunteerOpportunity;
   className?: string;
+  style?: CSSProperties;
 }
 
-const VolunteerCard = ({ opportunity, className }: VolunteerCardProps) => {
+const VolunteerCard = ({ opportunity, className, style }: VolunteerCardProps) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
   
@@ -43,9 +43,9 @@ const VolunteerCard = ({ opportunity, className }: VolunteerCardProps) => {
         opportunity.featured && "ring-2 ring-primary/20",
         className
       )}
+      style={style}
     >
       <div className="relative w-full h-48 overflow-hidden">
-        {/* Image */}
         <div className="image-loading w-full h-full">
           <img
             src={imageSrc}
@@ -58,7 +58,6 @@ const VolunteerCard = ({ opportunity, className }: VolunteerCardProps) => {
           />
         </div>
         
-        {/* Favorite button */}
         <button
           onClick={toggleFavorite}
           className="absolute top-3 right-3 w-9 h-9 rounded-full glass flex items-center justify-center shadow-sm transition-standard hover:scale-105 z-10"
@@ -72,21 +71,18 @@ const VolunteerCard = ({ opportunity, className }: VolunteerCardProps) => {
           />
         </button>
         
-        {/* Match indicator */}
         {opportunity.matchPercentage && (
           <div className="absolute top-3 left-3 glass px-2.5 py-1 rounded-full text-xs font-medium z-10">
             {opportunity.matchPercentage}% match
           </div>
         )}
         
-        {/* Featured badge */}
         {opportunity.featured && (
           <div className="absolute bottom-3 left-3 bg-primary text-primary-foreground px-2.5 py-1 rounded-full text-xs font-medium z-10">
             Featured
           </div>
         )}
         
-        {/* Organization logo */}
         <div className="absolute -bottom-5 right-4 w-10 h-10 rounded-full border-2 border-background bg-background shadow-sm flex items-center justify-center overflow-hidden">
           {opportunity.organizationLogo ? (
             <img 
@@ -102,7 +98,6 @@ const VolunteerCard = ({ opportunity, className }: VolunteerCardProps) => {
         </div>
       </div>
       
-      {/* Content */}
       <div className="flex flex-col flex-grow p-5 space-y-4">
         <div className="space-y-1">
           <h3 className="font-medium text-lg line-clamp-1 group-hover:text-primary transition-standard">
@@ -143,7 +138,6 @@ const VolunteerCard = ({ opportunity, className }: VolunteerCardProps) => {
         </div>
       </div>
       
-      {/* Footer */}
       <div className="p-5 pt-0 flex items-center justify-between">
         <div className="flex items-center text-sm text-muted-foreground">
           <Users className="h-3.5 w-3.5 mr-1.5" />
