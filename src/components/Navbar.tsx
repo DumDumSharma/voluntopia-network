@@ -43,8 +43,8 @@ const Navbar = () => {
           to="/"
           className="text-primary font-display text-xl font-semibold transition-standard hover:opacity-80"
         >
-          <span className="text-foreground">Volun</span>
-          <span className="text-primary">topia</span>
+          <span className="text-foreground">Voluntary</span>
+          <span className="text-primary">Match</span>
         </Link>
 
         {/* Desktop Navigation */}
